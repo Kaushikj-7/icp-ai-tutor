@@ -14,7 +14,7 @@ pub struct QAPair {
     pub timestamp: u64,
 }
 
-#[derive(CandidType, Deserialize)]
+#[derive(CandidType, Deserialize, Serialize)]
 pub struct UserStats {
     pub total_questions: u64,
     pub total_answers: u64,
@@ -76,6 +76,3 @@ fn get_user_stats() -> UserStats {
 fn greet(name: String) -> String {
     format!("Hello, {}! Welcome to LearnChain.", name)
 }
-
-// Export candid interface
-ic_cdk::export_candid!();
