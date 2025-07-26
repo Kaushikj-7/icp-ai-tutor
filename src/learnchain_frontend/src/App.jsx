@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/MockAuthContext';
+import { AuthProvider } from './context/InternetIdentityAuth';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AskQuestion from './pages/AskQuestion';

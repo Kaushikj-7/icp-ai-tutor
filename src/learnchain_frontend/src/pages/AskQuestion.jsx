@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { generateAIAnswer, getMockAnswer } from '../services/aiServiceSimple';
+import { useAuth } from '../context/InternetIdentityAuth';
+import { LearnChainService } from '../services/learnchainService';
 
 export default function AskQuestion() {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [loading, setLoading] = useState(false);
+  const { agent, isAuthenticated } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,6 +23,18 @@ export default function AskQuestion() {
         response = getMockAnswer(question);
       }
       setAnswer(response);
+
+      // Save to blockchain if authenticated
+      if (isAuthenticated && agent) {
+        try {
+          const learnchainService = new LearnChainService(agent);
+          await learnchainService.saveQA(question, response);
+          console.log('Q&A saved to blockchain successfully');
+        } catch (blockchainError) {
+          console.error('Failed to save to blockchain:', blockchainError);
+          // Continue even if blockchain save fails
+        }
+      }
     } catch (error) {
       console.error('Error getting answer:', error);
       setAnswer(getMockAnswer(question));

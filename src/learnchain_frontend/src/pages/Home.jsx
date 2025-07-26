@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/MockAuthContext';
+import { useAuth } from '../context/InternetIdentityAuth';
 
 export default function Home() {
-  const { isAuthenticated, login } = useAuth();
+  const { isAuthenticated, login, loading } = useAuth();
 
   const handleGetStarted = () => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated && !loading) {
       login();
     }
   };

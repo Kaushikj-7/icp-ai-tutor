@@ -1,0 +1,10 @@
+{
+  "canisters": {
+    "internet_identity": {
+      "name": "internet_identity",
+      "canister_id": "rdmx6-jaaaa-aaaaa-aaadq-cai",
+      "wasm_hash": "c8fd4747d80fb0b7b24d68266f1a2d71e18e5e2f",
+      "dependencies": []
+    }
+  }
+}

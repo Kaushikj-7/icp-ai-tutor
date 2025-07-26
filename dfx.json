@@ -10,8 +10,18 @@
       "source": [
         "src/learnchain_frontend/dist/"
       ]
+    },
+    "internet_identity": {
+      "type": "pull",
+      "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
     }
   },
+  "dependencies": [
+    {
+      "name": "internet_identity",
+      "canister_id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+    }
+  ],
   "defaults": {
     "build": {
       "args": "",

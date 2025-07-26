@@ -37,16 +37,13 @@ LearnChain is your personal AI tutor that runs entirely on the Internet Computer
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/kaushik-arc/Kaushik-j.git
-   cd icp-block
+   git clone https://github.com/Kaushikj-7/icp-ai-tutor.git
+   cd icp-ai-tutor
    ```
 
 2. **Install dependencies:**
 
    ```bash
-   # Install root dependencies
-   npm install
-
    # Install frontend dependencies
    cd src/learnchain_frontend
    npm install
@@ -56,24 +53,42 @@ LearnChain is your personal AI tutor that runs entirely on the Internet Computer
 3. **Start the local Internet Computer replica:**
 
    ```bash
-   dfx start --background
+   dfx start --background --clean
    ```
 
-4. **Deploy the canisters:**
+4. **Pull and deploy Internet Identity:**
+
+   ```bash
+   dfx deps pull
+   dfx deps deploy internet_identity
+   ```
+
+5. **Deploy the canisters:**
 
    ```bash
    dfx deploy
    ```
 
-5. **Start the development server:**
+6. **Build frontend:**
+
+   ```bash
+   cd src/learnchain_frontend
+   npm run build
+   cd ../..
+   ```
+
+7. **Deploy frontend assets:**
+
+   ```bash
+   dfx deploy learnchain_frontend
+   ```
+
+8. **Start the development server:**
 
    ```bash
    cd src/learnchain_frontend
    npm start
    ```
-
-6. **Open your browser:**
-   Navigate to `http://localhost:3000` to start using LearnChain!
 
 ---
 
@@ -161,25 +176,32 @@ icp-block/
 1. **Start local replica:**
 
    ```bash
-   dfx start --clean
+   dfx start --background --clean
    ```
 
-2. **Deploy canisters:**
+2. **Pull Internet Identity dependency:**
+
+   ```bash
+   dfx deps pull
+   dfx deps deploy internet_identity
+   ```
+
+3. **Deploy canisters:**
 
    ```bash
    dfx deploy
    ```
 
-3. **Generate declarations:**
+4. **Generate declarations:**
 
    ```bash
    dfx generate
    ```
 
-4. **Start frontend:**
+5. **Start frontend:**
    ```bash
    cd src/learnchain_frontend
-   npm run dev
+   npm start
    ```
 
 ### Backend Development

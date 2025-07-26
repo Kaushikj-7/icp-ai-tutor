@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/MockAuthContext';
+import { useAuth } from '../context/InternetIdentityAuth';
 
 export default function Navbar() {
   const { isAuthenticated, login, logout } = useAuth();
